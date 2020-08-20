@@ -157,12 +157,14 @@ PredictiveCalendar(cal=1, days=[CalendarDay(day=0, day_name='monday', slots=[Cal
 
 ### indego.update_predictive_schedule()
 Updates the predictive_schedule with the next planned mows (schedule_days) and the days where the smart mowing will not mow the lawn. The latter is combined by the time slots where the user does not want the Indego to mow (Attr='C') and the slots where the weather conditions prevent the mowing (e.g., Attr='pP').
+
 Examples for the attributes (Attr) parameter:
 - C = Customer forbidden
 - p = precipitation
 - P = precipitation
 - D = dewing
 - t = temperature
+
 Combinations of those attributes is also possible (e.g. "PDp")
 
 ```python
