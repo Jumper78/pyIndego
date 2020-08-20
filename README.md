@@ -157,6 +157,13 @@ PredictiveCalendar(cal=1, days=[CalendarDay(day=0, day_name='monday', slots=[Cal
 
 ### indego.update_predictive_schedule()
 Updates the predictive_schedule with the next planned mows (schedule_days) and the days where the smart mowing will not mow the lawn. The latter is combined by the time slots where the user does not want the Indego to mow (Attr='C') and the slots where the weather conditions prevent the mowing (e.g., Attr='pP').
+Examples for the attributes (Attr) parameter:
+- C = Customer forbidden
+- p = precipitation
+- P = precipitation
+- D = dewing
+- t = temperature
+Combinations of those attributes is also possible (e.g. "PDp")
 
 ```python
 PredictiveSchedule(schedule_days=[CalendarDay(day=0, day_name='monday', slots=[CalendarSlot(En=True, StHr=10, StMin=0, EnHr=13, EnMin=0, Attr=None)]), CalendarDay(day=2, day_name='wednesday', slots=[CalendarSlot(En=True, StHr=10, StMin=0, EnHr=13, EnMin=0, Attr=None)]), CalendarDay(day=4, day_name='friday', slots=[CalendarSlot(En=True, StHr=10, StMin=0, EnHr=13, EnMin=0, Attr=None)])], exclusion_days=[CalendarDay(day=0, day_name='monday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=1, day_name='tuesday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=2, day_name='wednesday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=3, day_name='thursday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=8, StMin=0, EnHr=12, EnMin=0, Attr='pP'), CalendarSlot(En=True, StHr=13, StMin=0, EnHr=15, EnMin=0, Attr='Pp'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=4, day_name='friday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=5, day_name='saturday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=8, EnMin=0, Attr='C'), CalendarSlot(En=True, StHr=20, StMin=0, EnHr=23, EnMin=59, Attr='C')]), CalendarDay(day=6, day_name='sunday', slots=[CalendarSlot(En=True, StHr=0, StMin=0, EnHr=23, EnMin=59, Attr='C')])])
