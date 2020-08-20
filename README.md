@@ -5,20 +5,23 @@
 Join the Discord channel to discuss around this integration:
 https://discord.gg/aD33GsP
 
-## Usage with Home Assistant
+## Source code
 For source files and version handling: https://github.com/jm-73/pyIndego
 
-For PYPI package: https://pypi.org/project/pyIndego/
+## PyPi package
+For PYPI package: https://pypi.org/project/pyIndego
+
+## Home Assistant
+For use in Home Assistant: https://github.com/jm-73/Indego
 
 ## Basic information needed
 
 The library requires python 3.7 or above.
 
-Information   | Description
---------------|------------
-your_username | Your username in the BoschSmartMove app
-your_password | Your password for the app
-your_serial   | Optional: Your Bosch Indego serial (found on the mover, in the mover menu or in the app)
+Required information   | Description
+-----------------------|------------
+your_mail@gmail.com    | Your username in the BoschSmartGardening app
+your_password          | Your password for the app
 
 This library is written for the login method with username (email address) and password. Login with Facebook account is not supported.
 
@@ -26,12 +29,12 @@ This library is written for the login method with username (email address) and p
 Call the API, synchronously:
 
     from pyIndego import IndegoClient
-    indego = IndegoClient(username='your_mail@gmail.com', password='your_password', serial='your_serial')
+    indego = IndegoClient(username='your_mail@gmail.com', password='your_password')
 
 Call the API, asynchronously:
 
     from pyIndego import IndegoAsyncClient
-    indego = IndegoAsyncClient(username='your_mail@gmail.com', password='your_password', serial='your_serial')
+    indego = IndegoAsyncClient(username='your_mail@gmail.com', password='your_password')
 
     await indego.close()
 
@@ -51,28 +54,27 @@ Returns a detailed description of the state, instead of a number.
 ## Update/download functions
 Description for the functions updating data from API and mower. The functions collecting data from only Bosch API does not wake up mower. Functions collecting data from both Bosch API and mower does wake up mower from sleeping.
 
-Call                               | Bosch API | Mower | Mower needs to be online
------------------------------------|-----------|-------|-------------------------
-indego.update_alerts()             |    X      |       |
-indego.update_all()                |           |       |
-indego.update_calendar()           |    X      |       |
-indego.update_config()             |           |       |
-indego.update_generic_data()       |    X      |       |
-indego.update_last_completed_mow() |    X      |       |
-indego.update_location()           |           |       |
-indego.update_network()            |    ?      |  ?    |   ?
-indego.update_next_mow()           |           |       |
-indego.update_operating_data()     |           |  X    |
-indego.update_predictive_calendar()|    X      |       |
-indego.update_predictive_schedule()|    X      |       |
-indego.update_security()           |    X      |       |
-indego.update_setup()              |    X      |       |
-indego.update_state()              |    X      |       |
-indego.update_state(force=True)    |    X      |  X    |
-indego.update_state(longpoll=True, longpoll_timeout=120)|X|  X    |
-indego.update_updates_available()            |           |  X    |
-indego.update_users()              |    X      |       |
-indego.download_map(filename='')|||
+Call                                                        | Bosch API | Mower | Mower needs to be online
+------------------------------------------------------------|-----------|-------|-------------------------
+indego.update_alerts()                                      |    X      |       |
+indego.update_calendar()                                    |    X      |       |
+indego.update_config()                                      |    X      |  X    |
+indego.update_generic_data()                                |    X      |       |
+indego.update_last_completed_mow()                          |    X      |       |
+indego.update_location()                                    |    X      |       |
+indego.update_network()                                     |    ?      |  ?    |   ?
+indego.update_next_mow()                                    |           |       |
+indego.update_operating_data()                              |    X      |  X    |
+indego.update_predictive_calendar()                         |    X      |       |
+indego.update_predictive_schedule()                         |    X      |       |
+indego.update_security()                                    |    X      |       |
+indego.update_setup()                                       |    X      |       |
+indego.update_state()                                       |    X      |       |
+indego.update_state(force=True)                             |    X      |       |
+indego.update_state(longpoll=True, longpoll_timeout=120)    |    X      |       |
+indego.update_updates_available()                           |    X      |  X?   |
+indego.update_users()                                       |    X      |       |
+indego.download_map(filename='')                            |    ?      |  ?    |
 
 ### To be implemented
 Predictive Setup
